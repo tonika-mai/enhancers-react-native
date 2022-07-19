@@ -17,7 +17,7 @@ import {Provider} from 'react-redux';
 import React from 'react';
 import {StatusBar} from 'react-native';
 import {createStackNavigator} from '@react-navigation/stack';
-import store from './redux/index.tsx';
+import store from './redux';
 
 const Stack = createStackNavigator();
 

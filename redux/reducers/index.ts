@@ -1,5 +1,5 @@
 import {combineReducers} from 'redux';
-import currentCityWeather from './currentCityWeather.tsx';
+import currentCityWeather from './currentCityWeather.ts';
 
 const AppReducer = combineReducers({currentCityWeather});
 

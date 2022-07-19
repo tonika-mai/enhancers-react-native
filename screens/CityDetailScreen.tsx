@@ -3,7 +3,7 @@ import {SafeAreaView, ScrollView, StyleSheet} from 'react-native';
 import {AppTitle} from '../components/Typography.tsx';
 import Nav from '../components/Nav.tsx';
 import React from 'react';
-import theme from '../theme.js';
+import theme from '../theme.ts';
 
 const CityDetailScreen: React.FC = () => (
   <SafeAreaView style={styles.container}>

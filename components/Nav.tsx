@@ -1,7 +1,7 @@
 import {Image, StyleSheet, TouchableOpacity, View} from 'react-native';
 
 import React from 'react';
-import theme from '../theme';
+import theme from '../theme.ts';
 
 const Nav: React.FC = () => {
   return (

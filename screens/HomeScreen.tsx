@@ -5,7 +5,7 @@ import {AppTitle} from '../components/Typography.tsx';
 import Nav from '../components/Nav.tsx';
 import React from 'react';
 import actions from '../redux/actions';
-import theme from '../theme.js';
+import theme from '../theme.ts';
 
 const HomeScreen: React.FC = ({navigation}) => {
   const dispatch = useDispatch();

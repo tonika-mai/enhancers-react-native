@@ -1,6 +1,6 @@
 import React, {type PropsWithChildren} from 'react';
 import {StyleSheet, Text} from 'react-native';
-import theme from '../theme.js';
+import theme from '../theme.ts';
 
 export const AppText: React.FC<
   PropsWithChildren<{
