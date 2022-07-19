@@ -13,21 +13,25 @@ import 'react-native-gesture-handler';
 import CityDetailScreen from './screens/CityDetailScreen.tsx';
 import HomeScreen from './screens/HomeScreen.tsx';
 import {NavigationContainer} from '@react-navigation/native';
+import {Provider} from 'react-redux';
 import React from 'react';
 import {StatusBar} from 'react-native';
 import {createStackNavigator} from '@react-navigation/stack';
+import store from './redux/index.tsx';
 
 const Stack = createStackNavigator();
 
 const App = () => {
   return (
-    <NavigationContainer>
-      <StatusBar />
-      <Stack.Navigator initialRouteName="Home" headerMode="none">
-        <Stack.Screen name="Home" component={HomeScreen} />
-        <Stack.Screen name="CityDetail" component={CityDetailScreen} />
-      </Stack.Navigator>
-    </NavigationContainer>
+    <Provider store={store}>
+      <NavigationContainer>
+        <StatusBar hidden />
+        <Stack.Navigator initialRouteName="Home" headerMode="none">
+          <Stack.Screen name="Home" component={HomeScreen} />
+          <Stack.Screen name="CityDetail" component={CityDetailScreen} />
+        </Stack.Navigator>
+      </NavigationContainer>
+    </Provider>
   );
 };
 
