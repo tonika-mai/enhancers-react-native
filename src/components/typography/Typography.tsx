@@ -1,6 +1,6 @@
 import React, {type PropsWithChildren} from 'react';
 import {Text} from 'react-native';
-import theme from '../../theme.ts';
+import theme from '../../../theme.ts';
 import styles from './Typography.styles';
 import {AppTextProps} from './Typography.types';
 

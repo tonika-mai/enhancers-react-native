@@ -10,13 +10,13 @@ const Nav: React.FC = () => {
   return (
     <View style={styles.container}>
       <TouchableOpacity>
-        <Image source={require('../../assets/icons/Home.png')} />
+        <Image source={require('../../../assets/icons/Home.png')} />
       </TouchableOpacity>
       <TouchableOpacity>
-        <Image source={require('../../assets/icons/Search.png')} />
+        <Image source={require('../../../assets/icons/Search.png')} />
       </TouchableOpacity>
       <TouchableOpacity>
-        <Image source={require('../../assets/icons/Location.png')} />
+        <Image source={require('../../../assets/icons/Location.png')} />
       </TouchableOpacity>
     </View>
   );

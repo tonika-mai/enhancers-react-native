@@ -1,8 +1,8 @@
 import {Button, SafeAreaView, ScrollView, StyleSheet} from 'react-native';
 import {useDispatch, useSelector} from 'react-redux';
 
-import {AppTitle} from '../typography';
-import Nav from '../nav';
+import {AppTitle} from '../components/typography';
+import Nav from '../components/nav';
 import React from 'react';
 import actions from '../../redux/actions';
 import theme from '../../theme.ts';

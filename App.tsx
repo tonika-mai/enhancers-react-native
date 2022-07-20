@@ -4,8 +4,8 @@
 
 import 'react-native-gesture-handler';
 
-import CityDetail from './components/screens/CityDetail.tsx';
-import Home from './components/screens/Home.tsx';
+import CityDetail from './src/screens/CityDetail.tsx';
+import Home from './src/screens/Home.tsx';
 import {NavigationContainer} from '@react-navigation/native';
 import {Provider} from 'react-redux';
 import React from 'react';
