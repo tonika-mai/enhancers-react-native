@@ -1,13 +1,13 @@
 import {Button, SafeAreaView, ScrollView, StyleSheet} from 'react-native';
 import {useDispatch, useSelector} from 'react-redux';
 
-import {AppTitle} from '../components/Typography.tsx';
-import Nav from '../components/Nav.tsx';
+import {AppTitle} from '../typography';
+import Nav from '../nav';
 import React from 'react';
-import actions from '../redux/actions';
-import theme from '../theme.ts';
+import actions from '../../redux/actions';
+import theme from '../../theme.ts';
 
-const HomeScreen: React.FC = ({navigation}) => {
+const Home: React.FC = ({navigation}) => {
   const dispatch = useDispatch();
   const {currentCityWeather} = useSelector(state => state.currentCityWeather);
   console.log({currentCityWeather});
@@ -38,4 +38,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default HomeScreen;
+export default Home;

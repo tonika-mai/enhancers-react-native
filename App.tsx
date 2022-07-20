@@ -1,17 +1,11 @@
 /**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * Generated with the TypeScript template
- * https://github.com/react-native-community/react-native-template-typescript
- *
  * @format
  */
 
 import 'react-native-gesture-handler';
 
-import CityDetailScreen from './screens/CityDetailScreen.tsx';
-import HomeScreen from './screens/HomeScreen.tsx';
+import CityDetail from './components/screens/CityDetail.tsx';
+import Home from './components/screens/Home.tsx';
 import {NavigationContainer} from '@react-navigation/native';
 import {Provider} from 'react-redux';
 import React from 'react';
@@ -27,8 +21,8 @@ const App = () => {
       <NavigationContainer>
         <StatusBar hidden />
         <Stack.Navigator initialRouteName="Home" headerMode="none">
-          <Stack.Screen name="Home" component={HomeScreen} />
-          <Stack.Screen name="CityDetail" component={CityDetailScreen} />
+          <Stack.Screen name="Home" component={Home} />
+          <Stack.Screen name="CityDetail" component={CityDetail} />
         </Stack.Navigator>
       </NavigationContainer>
     </Provider>

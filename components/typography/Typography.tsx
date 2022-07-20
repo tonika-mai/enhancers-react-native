@@ -1,15 +1,10 @@
 import React, {type PropsWithChildren} from 'react';
-import {StyleSheet, Text} from 'react-native';
-import theme from '../theme.ts';
+import {Text} from 'react-native';
+import theme from '../../theme.ts';
+import styles from './Typography.styles';
+import {AppTextProps} from './Typography.types';
 
-export const AppText: React.FC<
-  PropsWithChildren<{
-    size: number;
-    weight: 'light' | 'medium' | 'semibold' | 'bold';
-    color: string;
-    align: string;
-  }>
-> = ({
+export const AppText: React.FC<PropsWithChildren<AppTextProps>> = ({
   children,
   size = 18,
   weight = 'medium',
@@ -35,10 +30,3 @@ export const AppText: React.FC<
 export const AppTitle: React.FC = props => (
   <AppText {...props} weight="semibold" align="center" size={28} />
 );
-
-const styles = StyleSheet.create({
-  text: {
-    fontFamily: 'Poppins',
-    margin: 0,
-  },
-});

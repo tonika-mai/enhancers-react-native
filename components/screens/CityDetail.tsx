@@ -1,11 +1,11 @@
 import {SafeAreaView, ScrollView, StyleSheet} from 'react-native';
 
-import {AppTitle} from '../components/Typography.tsx';
-import Nav from '../components/Nav.tsx';
+import {AppTitle} from '../typography/';
+import Nav from '../nav';
 import React from 'react';
-import theme from '../theme.ts';
+import theme from '../../theme.ts';
 
-const CityDetailScreen: React.FC = () => (
+const CityDetail: React.FC = () => (
   <SafeAreaView style={styles.container}>
     <ScrollView contentInsetAdjustmentBehavior="automatic">
       <AppTitle>Pippo</AppTitle>
@@ -21,4 +21,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default CityDetailScreen;
+export default CityDetail;
