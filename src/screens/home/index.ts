@@ -1,10 +1,10 @@
-// import {
-//   MapDispatchToPropsFunction,
-//   MapStateToProps,
-//   connect,
-// } from 'react-redux';
+import Home from './Home';
+import {connect} from 'react-redux';
 
-// import Home from './Home';
+const mapStateToProps = state => ({
+  favoriteCities: state.favoriteCities.citiesList,
+});
 
-// get favorites
-// remove city
+const connectedHome = connect(mapStateToProps)(Home);
+
+export default connectedHome;

@@ -1,6 +1,6 @@
 export interface TypographyProps {
   size?: number;
   weight?: 'light' | 'medium' | 'semibold' | 'bold';
-  color?: string;
-  align?: string;
+  color?: 'primary' | 'textContrast' | 'disabled';
+  align?: 'left' | 'center' | 'right';
 }

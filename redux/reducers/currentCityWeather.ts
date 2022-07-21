@@ -1,4 +1,4 @@
-import {SET_CURRENT_CITY_WEATHER} from '../types';
+import {SET_CURRENT_CITY_WEATHER} from '../constants';
 
 type Action = {
   type: string;

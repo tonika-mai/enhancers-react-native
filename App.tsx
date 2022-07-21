@@ -5,11 +5,11 @@
 import 'react-native-gesture-handler';
 
 import CityDetail from './src/screens/CityDetail.tsx';
-import Home from './src/screens/home/Home.tsx';
 import {NavigationContainer} from '@react-navigation/native';
 import {Provider} from 'react-redux';
 import React from 'react';
 import {StatusBar} from 'react-native';
+import connectedHome from './src/screens/home';
 import {createStackNavigator} from '@react-navigation/stack';
 import store from './redux';
 
@@ -21,7 +21,7 @@ const App = () => {
       <NavigationContainer>
         <StatusBar hidden />
         <Stack.Navigator initialRouteName="Home" headerMode="none">
-          <Stack.Screen name="Home" component={Home} />
+          <Stack.Screen name="Home" component={connectedHome} />
           <Stack.Screen name="CityDetail" component={CityDetail} />
         </Stack.Navigator>
       </NavigationContainer>

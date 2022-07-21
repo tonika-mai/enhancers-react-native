@@ -3,8 +3,11 @@ import theme from '../../../theme';
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
     padding: theme.spacing,
+    flex: 1,
+  },
+  cardsContainer: {
+    margin: -10,
   },
 });
 
