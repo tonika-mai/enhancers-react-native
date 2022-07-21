@@ -1,15 +1,22 @@
-import {Button, FlatList, SafeAreaView, View} from 'react-native';
+import {Button, FlatList, SafeAreaView} from 'react-native';
+import React, {useState} from 'react';
 
 import CityCard from '../../components/organisms/city-card';
 import IconTextBtn from '../../components/molecules/icon-text-btn';
 import Nav from '../../components/nav';
-import React from 'react';
 import Typography from '../../components/atoms/typography';
+import AppModal from '../../components/organisms/modal';
 import styles from './Home.styles';
 
 const Home: React.FC = ({navigation, favoriteCities}) => {
+  const [isModalVisible, setIsModalVisible] = useState(false);
+
   function renderCityCard({item}) {
     return <CityCard data={item} />;
+  }
+
+  function openModal() {
+    setIsModalVisible(true);
   }
 
   return (
@@ -20,7 +27,9 @@ const Home: React.FC = ({navigation, favoriteCities}) => {
       <Typography weight="semibold" align="center" size={28}>
         Mario
       </Typography>
-      <IconTextBtn icon="add">Add city</IconTextBtn>
+      <IconTextBtn icon="add" onPress={openModal}>
+        Add city
+      </IconTextBtn>
       {/* <Button
           onPress={() => navigation.navigate('CityDetail')}
           title="Dettagli"
@@ -32,6 +41,14 @@ const Home: React.FC = ({navigation, favoriteCities}) => {
         style={styles.cardsContainer}
       />
       <Nav />
+      <AppModal
+        isVisible={isModalVisible}
+        setIsVisible={setIsModalVisible}
+        title="Add city">
+        <Typography weight="semibold" align="center" size={28}>
+          CIAO
+        </Typography>
+      </AppModal>
     </SafeAreaView>
   );
 };

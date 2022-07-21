@@ -4,6 +4,8 @@ import React from 'react';
 
 const iconsMap = {
   add: require('../../../../assets/icons/Add.png'),
+  close: require('../../../../assets/icons/Close.png'),
+  edit: require('../../../../assets/icons/Edit.png'),
   home: require('../../../../assets/icons/Home.png'),
   location: require('../../../../assets/icons/Location.png'),
   search: require('../../../../assets/icons/Search.png'),
