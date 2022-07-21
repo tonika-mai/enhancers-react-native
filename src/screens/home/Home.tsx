@@ -1,11 +1,12 @@
-import {Button, SafeAreaView, ScrollView, StyleSheet} from 'react-native';
+import {Button, SafeAreaView, ScrollView} from 'react-native';
 import {useDispatch, useSelector} from 'react-redux';
 
-import {AppTitle} from '../components/typography';
-import Nav from '../components/nav';
+import IconTextBtn from '../../components/molecules/icon-text-btn';
+import Nav from '../../components/nav';
 import React from 'react';
-import actions from '../../redux/actions';
-import theme from '../../theme.ts';
+import Typography from '../../components/atoms/typography';
+import actions from '../../../redux/actions';
+import styles from './Home.styles';
 
 const Home: React.FC = ({navigation}) => {
   const dispatch = useDispatch();
@@ -15,8 +16,13 @@ const Home: React.FC = ({navigation}) => {
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView contentInsetAdjustmentBehavior="automatic">
-        <AppTitle>Good morning!</AppTitle>
-        <AppTitle>Mario</AppTitle>
+        <Typography weight="semibold" align="center" size={28}>
+          Good morning!
+        </Typography>
+        <Typography weight="semibold" align="center" size={28}>
+          Mario
+        </Typography>
+        <IconTextBtn icon="add">Add city</IconTextBtn>
         <Button
           onPress={() => navigation.navigate('CityDetail')}
           title="Dettagli"
@@ -30,12 +36,5 @@ const Home: React.FC = ({navigation}) => {
     </SafeAreaView>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    padding: theme.spacing,
-  },
-});
 
 export default Home;

@@ -1,6 +1,6 @@
 import {SafeAreaView, ScrollView, StyleSheet} from 'react-native';
 
-import {AppTitle} from '../components/typography';
+import {AppTitle} from '../components/atoms/typography';
 import Nav from '../components/nav';
 import React from 'react';
 import theme from '../../theme.ts';
