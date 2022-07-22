@@ -9,14 +9,24 @@ import React from 'react';
 import Typography from '../../components/atoms/typography';
 import styles from './CityDetail.styles';
 
-const CityDetail: React.FC<{navigation: any; currentWeather: City}> = ({
-  navigation,
-  currentWeather,
-}) => {
+const CityDetail: React.FC<{
+  navigation: any;
+  currentWeather: City;
+  favoriteCities: City[];
+  addToFavs: () => any;
+}> = ({navigation, currentWeather, favoriteCities, addToFavs}) => {
+  const favCityNames = favoriteCities.map(city => city?.name);
+
   function goBack() {
     navigation.goBack();
   }
-  console.log({currentWeather});
+
+  function removeFromFavs(cityName: string) {}
+
+  function addCityToFavorites(cityWeather) {
+    addToFavs(cityWeather);
+  }
+
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView>
@@ -29,7 +39,17 @@ const CityDetail: React.FC<{navigation: any; currentWeather: City}> = ({
             color="textContrast">
             {currentWeather.name}
           </Typography>
-          <IconBtn name="add_contrast" />
+          {favCityNames.includes(currentWeather.name) ? (
+            <IconBtn
+              name="remove"
+              onPress={() => removeFromFavs(currentWeather.name)}
+            />
+          ) : (
+            <IconBtn
+              name="add_contrast"
+              onPress={() => addCityToFavorites(currentWeather)}
+            />
+          )}
         </View>
         <View>
           <Typography align="center" color="textContrast" size={20}>

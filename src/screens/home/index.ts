@@ -8,7 +8,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   updateFavWeather: (weather, cityName) =>
-    dispatch(actions.setFavCityWeather({weather, cityName})),
+    dispatch(actions.updateFavCityWeather({weather, cityName})),
   setCurrentWeather: (weather, cityName) =>
     dispatch(actions.setCurrentCityWeather({weather, cityName})),
 });

@@ -1,16 +1,33 @@
-import {SET_CURRENT_CITY_WEATHER, SET_FAV_CITY_WEATHER} from '../constants';
+import {
+  ADD_TO_FAVS,
+  REMOVE_FROM_FAVS,
+  SET_CURRENT_CITY_WEATHER,
+  UPDATE_FAV_CITY_WEATHER,
+} from '../constants';
 
 const setCurrentCityWeather = payload => ({
   type: SET_CURRENT_CITY_WEATHER,
   payload,
 });
 
-const setFavCityWeather = payload => ({
-  type: SET_FAV_CITY_WEATHER,
+const updateFavCityWeather = payload => ({
+  type: UPDATE_FAV_CITY_WEATHER,
+  payload,
+});
+
+const addToFavs = payload => ({
+  type: ADD_TO_FAVS,
+  payload,
+});
+
+const removeFromFavs = payload => ({
+  type: REMOVE_FROM_FAVS,
   payload,
 });
 
 export default {
   setCurrentCityWeather,
-  setFavCityWeather,
+  updateFavCityWeather,
+  addToFavs,
+  removeFromFavs,
 };
