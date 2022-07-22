@@ -1,14 +1,20 @@
 import {Button, FlatList, SafeAreaView} from 'react-native';
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 
+import AppModal from '../../components/organisms/modal';
+import {City} from './Home.types';
 import CityCard from '../../components/organisms/city-card';
 import IconTextBtn from '../../components/molecules/icon-text-btn';
 import Nav from '../../components/nav';
 import Typography from '../../components/atoms/typography';
-import AppModal from '../../components/organisms/modal';
+import {getWeatherFromCoords} from '../../../networking';
 import styles from './Home.styles';
 
-const Home: React.FC = ({navigation, favoriteCities}) => {
+const Home: React.FC<{
+  navigation: any;
+  favoriteCities: City[];
+  updateFavWeather: () => any;
+}> = ({navigation, favoriteCities, updateFavWeather}) => {
   const [isModalVisible, setIsModalVisible] = useState(false);
 
   function renderCityCard({item}) {
@@ -18,6 +24,15 @@ const Home: React.FC = ({navigation, favoriteCities}) => {
   function openModal() {
     setIsModalVisible(true);
   }
+
+  useEffect(() => {
+    if (favoriteCities.length > 0) {
+      favoriteCities.forEach(async city => {
+        const weather = await getWeatherFromCoords(city.lat, city.lon);
+        updateFavWeather(weather, city.name);
+      });
+    }
+  }, []);
 
   return (
     <SafeAreaView style={[styles.container, styles.flexGrow]}>
@@ -37,7 +52,7 @@ const Home: React.FC = ({navigation, favoriteCities}) => {
       <FlatList
         data={favoriteCities}
         renderItem={renderCityCard}
-        keyExtractor={item => item.cityName}
+        keyExtractor={item => item.name}
         style={styles.cardsContainer}
       />
       <Nav />

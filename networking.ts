@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const openWeatherAPIKey = '0e0ae40be39a37639254d653eed5402c';
+const openWeatherAPIKey = '77938cfc3c7738dc1125b7fdbd1fae65';
 const axiosWeather = axios.create({
   baseURL: 'https://api.openweathermap.org/',
 });
@@ -10,9 +10,8 @@ axiosWeather.interceptors.request.use(config => {
   return config;
 });
 
-export async function getWeatherFromCoords(lat, lon) {
+export async function getWeatherFromCoords(lat: number, lon: number) {
   try {
-    store.dispatch(setLoading(true));
     const res = await axiosWeather.get('data/2.5/onecall', {
       params: {
         lat,
@@ -20,11 +19,8 @@ export async function getWeatherFromCoords(lat, lon) {
         exclude: 'minutely,alerts',
       },
     });
-    store.dispatch(setLoading(false));
     return res.data;
   } catch (err) {
-    store.dispatch(setLoading(false));
-    store.dispatch(setError(true));
     console.log(err);
   }
 }

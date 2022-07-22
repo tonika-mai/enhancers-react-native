@@ -6,7 +6,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    backgroundColor: 'blue',
+    backgroundColor: '#5374e7',
     borderRadius: theme.borderRadius,
     height: 140,
     padding: theme.spacing,
@@ -14,6 +14,9 @@ const styles = StyleSheet.create({
   },
   flexGrow: {
     flex: 1,
+  },
+  image: {
+    resizeMode: 'contain',
   },
   tempContainer: {
     alignItems: 'center',

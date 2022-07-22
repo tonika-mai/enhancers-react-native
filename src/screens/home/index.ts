@@ -1,10 +1,16 @@
 import Home from './Home';
+import actions from '../../../redux/actions';
 import {connect} from 'react-redux';
 
 const mapStateToProps = state => ({
   favoriteCities: state.favoriteCities.citiesList,
 });
 
-const connectedHome = connect(mapStateToProps)(Home);
+const mapDispatchToProps = dispatch => ({
+  updateFavWeather: (weather, cityName) =>
+    dispatch(actions.setFavCityWeather({weather, cityName})),
+});
+
+const connectedHome = connect(mapStateToProps, mapDispatchToProps)(Home);
 
 export default connectedHome;

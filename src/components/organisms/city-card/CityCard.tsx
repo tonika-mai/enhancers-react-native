@@ -1,4 +1,5 @@
 import {TouchableOpacity, View} from 'react-native';
+import {formatLongDate, formatTemperature, formatTime} from '../../../../utils';
 
 import Icon from '../../atoms/icon';
 import React from 'react';
@@ -10,19 +11,22 @@ const CityCard: ReactFC = ({onPress, data}) => {
     <TouchableOpacity style={styles.container} onPress={onPress}>
       <View style={styles.flexGrow}>
         <Typography color="textContrast" size={26}>
-          {data.cityName}
+          {data.name}
         </Typography>
         <Typography color="textContrast" size={15}>
-          {data.date}
+          {formatLongDate(data.current?.dt, data.timezone)}
         </Typography>
         <Typography color="textContrast" size={12}>
-          {data.time}
+          {formatTime(data.current?.dt, data.timezone)}
         </Typography>
       </View>
-      <Icon name={data.icon} style={styles.flexGrow} />
+      <Icon
+        name={data.current?.weather[0]?.icon}
+        style={[styles.flexGrow, styles.image]}
+      />
       <View style={[styles.flexGrow, styles.tempContainer]}>
         <Typography color="textContrast" size={50} weight="bold">
-          {data.temp}
+          {formatTemperature(data.current?.temp)}
         </Typography>
       </View>
     </TouchableOpacity>
