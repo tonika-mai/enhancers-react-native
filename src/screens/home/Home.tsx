@@ -34,7 +34,13 @@ const Home: React.FC<{
     const weather = await getWeatherFromCoords(chosenCity.lat, chosenCity.lon);
     setCurrentWeather(weather, chosenCity.name);
     navigation.navigate('CityDetail');
+  }
+
+  function selectCityFromModal(chosenCity) {
+    selectCity(chosenCity);
     setIsModalVisible(false);
+    setCityInput('');
+    setCitiesOptions([]);
   }
 
   function renderCityCard({item}) {
@@ -87,7 +93,7 @@ const Home: React.FC<{
           <IconTextBtn
             key={city.name}
             icon="city"
-            onPress={() => selectCity(city)}>
+            onPress={() => selectCityFromModal(city)}>
             {city.name}
           </IconTextBtn>
         ))}
