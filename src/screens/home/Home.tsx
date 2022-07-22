@@ -26,10 +26,6 @@ const Home: React.FC<{
   const [citiesOptions, setCitiesOptions] = useState([]);
   const [debouncedInput] = useDebounce(cityInput, 500);
 
-  function renderCityCard({item}) {
-    return <CityCard data={item} />;
-  }
-
   function openModal() {
     setIsModalVisible(true);
   }
@@ -39,6 +35,10 @@ const Home: React.FC<{
     setCurrentWeather(weather, chosenCity.name);
     navigation.navigate('CityDetail');
     setIsModalVisible(false);
+  }
+
+  function renderCityCard({item}) {
+    return <CityCard data={item} onPress={() => selectCity(item)} />;
   }
 
   useEffect(() => {

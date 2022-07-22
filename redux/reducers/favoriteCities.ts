@@ -32,7 +32,13 @@ const favoriteCities = (state: any = initialState, action: Action) => {
         citiesList: [action.payload, ...state.citiesList],
       };
     case REMOVE_FROM_FAVS:
-      return state;
+      const newFavs = state.citiesList.filter(
+        city => city.name !== action.payload,
+      );
+      return {
+        ...state,
+        citiesList: newFavs,
+      };
     default:
       return state;
   }

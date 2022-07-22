@@ -9,6 +9,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   addToFavs: city => dispatch(actions.addToFavs(city)),
+  removeFromFavs: cityName => dispatch(actions.removeFromFavs(cityName)),
 });
 
 const connectedCityDetail = connect(

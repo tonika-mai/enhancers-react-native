@@ -14,14 +14,23 @@ const CityDetail: React.FC<{
   currentWeather: City;
   favoriteCities: City[];
   addToFavs: () => any;
-}> = ({navigation, currentWeather, favoriteCities, addToFavs}) => {
+  removeFromFavs: () => any;
+}> = ({
+  navigation,
+  currentWeather,
+  favoriteCities,
+  addToFavs,
+  removeFromFavs,
+}) => {
   const favCityNames = favoriteCities.map(city => city?.name);
 
   function goBack() {
     navigation.goBack();
   }
 
-  function removeFromFavs(cityName: string) {}
+  function removeCityFromFavs(cityName: string) {
+    removeFromFavs(cityName);
+  }
 
   function addCityToFavorites(cityWeather) {
     addToFavs(cityWeather);
@@ -42,7 +51,7 @@ const CityDetail: React.FC<{
           {favCityNames.includes(currentWeather.name) ? (
             <IconBtn
               name="remove"
-              onPress={() => removeFromFavs(currentWeather.name)}
+              onPress={() => removeCityFromFavs(currentWeather.name)}
             />
           ) : (
             <IconBtn
