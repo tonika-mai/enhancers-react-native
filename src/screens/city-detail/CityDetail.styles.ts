@@ -19,6 +19,10 @@ const styles = StyleSheet.create({
     justifyContent: 'space-evenly',
     alignItems: 'center',
   },
+  cityCardsContainer: {
+    margin: -10,
+    flexDirection: 'row',
+  },
 });
 
 export default styles;

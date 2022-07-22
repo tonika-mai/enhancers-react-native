@@ -7,6 +7,7 @@ import IconBtn from '../../components/molecules/icon-btn';
 import Nav from '../../components/nav';
 import React from 'react';
 import Typography from '../../components/atoms/typography';
+import DayCard from '../../components/organisms/day-card';
 import styles from './CityDetail.styles';
 
 const CityDetail: React.FC<{
@@ -78,6 +79,15 @@ const CityDetail: React.FC<{
           </Typography>
         </View>
         {/* slider */}
+        <ScrollView horizontal style={styles.cityCardsContainer}>
+          {currentWeather.daily.map(day => (
+            <DayCard
+              key={day.dt}
+              day={day}
+              timezone={currentWeather.timezone}
+            />
+          ))}
+        </ScrollView>
       </ScrollView>
       <Nav />
     </SafeAreaView>
