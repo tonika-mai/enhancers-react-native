@@ -6,9 +6,12 @@ const theme = {
     primary: '#01175F',
     textContrast: '#FFFFFF',
     disabled: '#B8B8B8',
+    common: {
+      white: '#FFFFFF',
+      black: '#222222',
+    },
     background: {
       default: '#F1F1F1',
-      white: '#FFFFFF',
       gradients: {
         default: 'linear-gradient(145deg, #5374e7 0%, #77b9f5 100%)',
         '01d': 'linear-gradient(145deg, #5374e7 0%, #77b9f5 100%)',

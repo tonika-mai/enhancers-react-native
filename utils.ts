@@ -52,19 +52,3 @@ export function formatDay(date, timezone) {
   }
   return dt;
 }
-
-export function calcWindCondition(windSpeed) {
-  if (windSpeed >= 0 && windSpeed <= 1.5) {
-    return 'Calm';
-  } else if (windSpeed > 1.5 && windSpeed <= 5.4) {
-    return 'Breeze';
-  } else if (windSpeed > 5.4 && windSpeed <= 13.8) {
-    return 'Moderate wind';
-  } else if (windSpeed > 13.8 && windSpeed <= 24.4) {
-    return 'Strong wind';
-  } else if (windSpeed > 24.4 && windSpeed <= 32.6) {
-    return 'Strong storm';
-  } else if (windSpeed > 32.6) {
-    return 'Hurricane';
-  }
-}

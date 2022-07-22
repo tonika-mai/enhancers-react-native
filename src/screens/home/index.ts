@@ -9,6 +9,8 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
   updateFavWeather: (weather, cityName) =>
     dispatch(actions.setFavCityWeather({weather, cityName})),
+  setCurrentWeather: (weather, cityName) =>
+    dispatch(actions.setCurrentCityWeather({weather, cityName})),
 });
 
 const connectedHome = connect(mapStateToProps, mapDispatchToProps)(Home);

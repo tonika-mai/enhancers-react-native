@@ -1,21 +1,30 @@
-import {Button, FlatList, SafeAreaView} from 'react-native';
+import {FlatList, SafeAreaView} from 'react-native';
 import React, {useEffect, useState} from 'react';
+import {
+  getCoordsListFromCityName,
+  getWeatherFromCoords,
+} from '../../../networking';
 
 import AppModal from '../../components/organisms/modal';
 import {City} from './Home.types';
 import CityCard from '../../components/organisms/city-card';
 import IconTextBtn from '../../components/molecules/icon-text-btn';
 import Nav from '../../components/nav';
+import TextField from '../../components/atoms/text-field';
 import Typography from '../../components/atoms/typography';
-import {getWeatherFromCoords} from '../../../networking';
 import styles from './Home.styles';
+import {useDebounce} from 'use-debounce';
 
 const Home: React.FC<{
   navigation: any;
   favoriteCities: City[];
   updateFavWeather: () => any;
-}> = ({navigation, favoriteCities, updateFavWeather}) => {
+  setCurrentWeather: () => any;
+}> = ({navigation, favoriteCities, updateFavWeather, setCurrentWeather}) => {
   const [isModalVisible, setIsModalVisible] = useState(false);
+  const [cityInput, setCityInput] = useState('');
+  const [citiesOptions, setCitiesOptions] = useState([]);
+  const [debouncedInput] = useDebounce(cityInput, 500);
 
   function renderCityCard({item}) {
     return <CityCard data={item} />;
@@ -23,6 +32,13 @@ const Home: React.FC<{
 
   function openModal() {
     setIsModalVisible(true);
+  }
+
+  async function selectCity(chosenCity) {
+    const weather = await getWeatherFromCoords(chosenCity.lat, chosenCity.lon);
+    setCurrentWeather(weather, chosenCity.name);
+    navigation.navigate('CityDetail');
+    setIsModalVisible(false);
   }
 
   useEffect(() => {
@@ -33,6 +49,16 @@ const Home: React.FC<{
       });
     }
   }, []);
+
+  useEffect(() => {
+    if (debouncedInput) {
+      async function getCities(input) {
+        const results = await getCoordsListFromCityName(input);
+        setCitiesOptions(results.filter(city => city.country === 'IT'));
+      }
+      getCities(debouncedInput);
+    }
+  }, [debouncedInput]);
 
   return (
     <SafeAreaView style={[styles.container, styles.flexGrow]}>
@@ -45,10 +71,6 @@ const Home: React.FC<{
       <IconTextBtn icon="add" onPress={openModal}>
         Add city
       </IconTextBtn>
-      {/* <Button
-          onPress={() => navigation.navigate('CityDetail')}
-          title="Dettagli"
-        /> */}
       <FlatList
         data={favoriteCities}
         renderItem={renderCityCard}
@@ -60,9 +82,15 @@ const Home: React.FC<{
         isVisible={isModalVisible}
         setIsVisible={setIsModalVisible}
         title="Add city">
-        <Typography weight="semibold" align="center" size={28}>
-          CIAO
-        </Typography>
+        <TextField value={cityInput} onChange={setCityInput} />
+        {citiesOptions.map(city => (
+          <IconTextBtn
+            key={city.name}
+            icon="city"
+            onPress={() => selectCity(city)}>
+            {city.name}
+          </IconTextBtn>
+        ))}
       </AppModal>
     </SafeAreaView>
   );

@@ -4,10 +4,14 @@ import React from 'react';
 
 const iconsMap = {
   add: require('../../../../assets/icons/Add.png'),
+  add_contrast: require('../../../../assets/icons/Add_contrast.png'),
+  arrowLeft: require('../../../../assets/icons/ArrowLeft.png'),
+  city: require('../../../../assets/icons/City.png'),
   close: require('../../../../assets/icons/Close.png'),
   edit: require('../../../../assets/icons/Edit.png'),
   home: require('../../../../assets/icons/Home.png'),
   location: require('../../../../assets/icons/Location.png'),
+  remove: require('../../../../assets/icons/Remove.png'),
   search: require('../../../../assets/icons/Search.png'),
   '01d': require('../../../../assets/icons/weather/01d.png'),
   '01n': require('../../../../assets/icons/weather/01n.png'),

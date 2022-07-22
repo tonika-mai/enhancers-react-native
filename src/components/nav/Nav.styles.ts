@@ -6,7 +6,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-around',
-    backgroundColor: theme.palette.background.white,
+    backgroundColor: theme.palette.common.white,
     borderRadius: theme.borderRadius,
     height: 78,
     elevation: 8,

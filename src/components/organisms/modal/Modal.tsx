@@ -1,8 +1,9 @@
 import {Modal, View} from 'react-native';
-import React from 'react';
+
 import IconBtn from '../../molecules/icon-btn';
-import Typography from '../../atoms/typography';
 import {ModalProps} from './Modal.types';
+import React from 'react';
+import Typography from '../../atoms/typography';
 import styles from './Modal.styles';
 
 const AppModal: ReactFC<PropsWithChildren<ModalProps>> = ({
@@ -26,7 +27,7 @@ const AppModal: ReactFC<PropsWithChildren<ModalProps>> = ({
       <Typography weight="semibold" align="center" size={22}>
         {title}
       </Typography>
-      {children}
+      <View style={styles.contentContainer}>{children}</View>
     </Modal>
   );
 };
