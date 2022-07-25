@@ -1,4 +1,4 @@
-import {FlatList, SafeAreaView} from 'react-native';
+import {FlatList, SafeAreaView, View, Alert} from 'react-native';
 import React, {useEffect, useState} from 'react';
 import {
   getCoordsListFromCityName,
@@ -9,6 +9,7 @@ import AppModal from '../../components/organisms/modal';
 import {City} from './Home.types';
 import CityCard from '../../components/organisms/city-card';
 import IconTextBtn from '../../components/molecules/icon-text-btn';
+import IconBtn from '../../components/molecules/icon-btn';
 import Nav from '../../components/nav';
 import TextField from '../../components/atoms/text-field';
 import Typography from '../../components/atoms/typography';
@@ -20,7 +21,15 @@ const Home: React.FC<{
   favoriteCities: City[];
   updateFavWeather: () => any;
   setCurrentWeather: () => any;
-}> = ({navigation, favoriteCities, updateFavWeather, setCurrentWeather}) => {
+  removeFromFavs: () => any;
+}> = ({
+  navigation,
+  favoriteCities,
+  updateFavWeather,
+  setCurrentWeather,
+  removeFromFavs,
+}) => {
+  const [isEditMode, setIsEditMode] = useState(false);
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [cityInput, setCityInput] = useState('');
   const [citiesOptions, setCitiesOptions] = useState([]);
@@ -43,8 +52,33 @@ const Home: React.FC<{
     setCitiesOptions([]);
   }
 
+  function askDeleteConfirmation(cityName: string) {
+    return Alert.alert('Remove from favorites?', null, [
+      {
+        text: 'Cancel',
+        style: 'cancel',
+      },
+      {text: 'Confirm', onPress: () => removeCityFromFavs(cityName)},
+    ]);
+  }
+
+  function removeCityFromFavs(cityName: string) {
+    removeFromFavs(cityName);
+  }
+
+  function toggleEditMode() {
+    setIsEditMode(!isEditMode);
+  }
+
   function renderCityCard({item}) {
-    return <CityCard data={item} onPress={() => selectCity(item)} />;
+    return (
+      <CityCard
+        data={item}
+        editMode={isEditMode}
+        onCardPress={() => selectCity(item)}
+        onRemovePress={() => askDeleteConfirmation(item.name)}
+      />
+    );
   }
 
   useEffect(() => {
@@ -67,7 +101,15 @@ const Home: React.FC<{
   }, [debouncedInput]);
 
   return (
-    <SafeAreaView style={[styles.container, styles.flexGrow]}>
+    <SafeAreaView style={styles.container}>
+      {favoriteCities.length > 0 && (
+        <View style={styles.removeBtnContainer}>
+          <IconBtn
+            name={isEditMode ? 'save' : 'edit'}
+            onPress={toggleEditMode}
+          />
+        </View>
+      )}
       <Typography weight="semibold" align="center" size={28}>
         Good morning!
       </Typography>

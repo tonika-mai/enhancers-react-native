@@ -11,6 +11,7 @@ const mapDispatchToProps = dispatch => ({
     dispatch(actions.updateFavCityWeather({weather, cityName})),
   setCurrentWeather: (weather, cityName) =>
     dispatch(actions.setCurrentCityWeather({weather, cityName})),
+  removeFromFavs: cityName => dispatch(actions.removeFromFavs(cityName)),
 });
 
 const connectedHome = connect(mapStateToProps, mapDispatchToProps)(Home);

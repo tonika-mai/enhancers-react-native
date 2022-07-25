@@ -2,13 +2,19 @@ import {TouchableOpacity, View} from 'react-native';
 import {formatLongDate, formatTemperature, formatTime} from '../../../../utils';
 
 import Icon from '../../atoms/icon';
+import IconBtn from '../../molecules/icon-btn';
 import React from 'react';
 import Typography from '../../atoms/typography';
 import styles from './CityCard.styles';
 
-const CityCard: ReactFC = ({onPress, data}) => {
+const CityCard: ReactFC = ({onCardPress, data, editMode, onRemovePress}) => {
   return (
-    <TouchableOpacity style={styles.container} onPress={onPress}>
+    <TouchableOpacity style={styles.container} onPress={onCardPress}>
+      {editMode ? (
+        <View style={styles.removeBtnContainer}>
+          <IconBtn name="remove_filled" onPress={onRemovePress} />
+        </View>
+      ) : null}
       <View style={styles.flexGrow}>
         <Typography color="textContrast" size={26}>
           {data.name}

@@ -12,6 +12,8 @@ const iconsMap = {
   home: require('../../../../assets/icons/Home.png'),
   location: require('../../../../assets/icons/Location.png'),
   remove: require('../../../../assets/icons/Remove.png'),
+  remove_filled: require('../../../../assets/icons/Remove_filled.png'),
+  save: require('../../../../assets/icons/Save.png'),
   search: require('../../../../assets/icons/Search.png'),
   '01d': require('../../../../assets/icons/weather/01d.png'),
   '01n': require('../../../../assets/icons/weather/01n.png'),

@@ -12,6 +12,11 @@ const styles = StyleSheet.create({
     padding: theme.spacing,
     margin: 10,
   },
+  removeBtnContainer: {
+    position: 'absolute',
+    top: -5,
+    left: -5,
+  },
   flexGrow: {
     flex: 1,
   },

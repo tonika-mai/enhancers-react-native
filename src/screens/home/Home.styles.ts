@@ -6,6 +6,9 @@ const styles = StyleSheet.create({
     padding: theme.spacing,
     flex: 1,
   },
+  removeBtnContainer: {
+    alignSelf: 'flex-end',
+  },
   cardsContainer: {
     margin: -10,
   },
