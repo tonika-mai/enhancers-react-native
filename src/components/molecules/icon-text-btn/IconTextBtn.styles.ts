@@ -5,7 +5,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
-    margin: 20,
+    margin: 10,
   },
   icon: {
     marginRight: 15,

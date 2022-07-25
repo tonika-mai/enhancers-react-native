@@ -9,6 +9,12 @@ const styles = StyleSheet.create({
   removeBtnContainer: {
     alignSelf: 'flex-end',
   },
+  buttonSearchContainer: {
+    marginTop: 15,
+    marginBottom: 15,
+    height: 60,
+    justifyContent: 'center',
+  },
   cardsContainer: {
     margin: -10,
   },

@@ -24,12 +24,33 @@ const Home: React.FC<HomePropTypes> = ({
   removeFromFavs,
 }) => {
   const [isEditMode, setIsEditMode] = useState<boolean>(false);
+  const [isFilterMode, setIsFilterMode] = useState<boolean>(false);
   const [isModalVisible, setIsModalVisible] = useState<boolean>(false);
   const [cityInput, setCityInput] = useState<string>('');
+  const [debouncedInput] = useDebounce(cityInput, 300);
+  const [filterInput, setFilterInput] = useState<string>('');
+  const [debouncedFilterInput] = useDebounce(filterInput, 100);
   const [citiesOptions, setCitiesOptions] = useState<[]>([]);
-  const [debouncedInput] = useDebounce(cityInput, 500);
+  const [citiesToRender, setCitiesToRender] = useState<[]>(favoriteCities);
 
-  console.log(favoriteCities[0]);
+  const navButtons = [
+    {
+      name: 'home',
+      onPress: () => {},
+    },
+    {
+      name: 'search',
+      onPress: () => {
+        setIsFilterMode(!isFilterMode);
+        setCitiesToRender(favoriteCities);
+        setFilterInput('');
+      },
+    },
+    {
+      name: 'location',
+      onPress: () => {},
+    },
+  ];
 
   const openModal = () => {
     setIsModalVisible(true);
@@ -96,9 +117,20 @@ const Home: React.FC<HomePropTypes> = ({
     }
   }, [debouncedInput]);
 
+  useEffect(() => {
+    if (debouncedFilterInput) {
+      const filteredCities = favoriteCities.filter(city =>
+        city.name.includes(debouncedFilterInput),
+      );
+      setCitiesToRender(filteredCities);
+    } else {
+      setCitiesToRender(favoriteCities);
+    }
+  }, [debouncedFilterInput, favoriteCities]);
+
   return (
     <SafeAreaView style={styles.container}>
-      {favoriteCities.length > 0 && (
+      {citiesToRender.length > 0 && (
         <View style={styles.removeBtnContainer}>
           <IconBtn
             name={isEditMode ? 'save' : 'edit'}
@@ -112,16 +144,22 @@ const Home: React.FC<HomePropTypes> = ({
       <Typography weight="semibold" align="center" size={28}>
         Mario
       </Typography>
-      <IconTextBtn icon="add" onPress={openModal}>
-        Add city
-      </IconTextBtn>
+      <View style={styles.buttonSearchContainer}>
+        {isFilterMode ? (
+          <TextField value={filterInput} onChange={setFilterInput} />
+        ) : (
+          <IconTextBtn icon="add" onPress={openModal}>
+            Add city
+          </IconTextBtn>
+        )}
+      </View>
       <FlatList
-        data={favoriteCities}
+        data={citiesToRender}
         renderItem={renderCityCard}
         keyExtractor={item => item.name}
         style={styles.cardsContainer}
       />
-      <Nav />
+      <Nav buttons={navButtons} />
       <AppModal
         isVisible={isModalVisible}
         setIsVisible={setIsModalVisible}

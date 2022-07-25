@@ -2,15 +2,18 @@ import IconBtn from '../molecules/icon-btn';
 import React from 'react';
 import {View} from 'react-native';
 import styles from './Nav.styles';
+import {NavProps} from './Nav.types.ts';
 
-// TODO imgs should come from props
-
-const Nav: React.FC = () => {
+const Nav: React.FC<NavProps> = ({buttons}) => {
   return (
     <View style={styles.container}>
-      <IconBtn name="home" />
-      <IconBtn name="search" />
-      <IconBtn name="location" />
+      {buttons.map(button => (
+        <IconBtn
+          key={button.name}
+          name={button.name}
+          onPress={button.onPress}
+        />
+      ))}
     </View>
   );
 };

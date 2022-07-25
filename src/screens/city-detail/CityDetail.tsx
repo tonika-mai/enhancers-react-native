@@ -25,6 +25,21 @@ const CityDetail: React.FC<CityDetailPropTypes> = ({
   const hoursLeftToday = 24 - parseInt(currentHour);
   const hoursToRender = hourlyForecast?.slice(0, hoursLeftToday);
 
+  const navButtons = [
+    {
+      name: 'home',
+      onPress: () => {},
+    },
+    {
+      name: 'search',
+      onPress: () => {},
+    },
+    {
+      name: 'location',
+      onPress: () => {},
+    },
+  ];
+
   const goBack = () => {
     navigation.goBack();
   };
@@ -90,7 +105,7 @@ const CityDetail: React.FC<CityDetailPropTypes> = ({
           ))}
         </ScrollView>
       </ScrollView>
-      <Nav />
+      <Nav buttons={navButtons} />
     </SafeAreaView>
   );
 };
