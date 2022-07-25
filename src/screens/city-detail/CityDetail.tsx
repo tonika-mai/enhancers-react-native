@@ -1,7 +1,7 @@
 import {SafeAreaView, ScrollView, View} from 'react-native';
 import {formatLongDate, formatTemperature} from '../../utils';
 
-import {City} from '../home/Home.types';
+import {CityDetailPropTypes} from './CityDetail.types';
 import Icon from '../../components/atoms/icon';
 import IconBtn from '../../components/molecules/icon-btn';
 import Nav from '../../components/nav';
@@ -12,13 +12,7 @@ import HoursSlider from '../../components/organisms/hours-slider';
 import styles from './CityDetail.styles';
 import dayjs from 'dayjs';
 
-const CityDetail: React.FC<{
-  navigation: any;
-  currentWeather: City;
-  favoriteCities: City[];
-  addToFavs: () => any;
-  removeFromFavs: () => any;
-}> = ({
+const CityDetail: React.FC<CityDetailPropTypes> = ({
   navigation,
   currentWeather,
   favoriteCities,

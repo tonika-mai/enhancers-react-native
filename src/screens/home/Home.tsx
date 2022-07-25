@@ -6,7 +6,7 @@ import {
 } from '../../networking';
 
 import AppModal from '../../components/organisms/modal';
-import {City} from './Home.types';
+import {HomePropTypes} from './Home.types';
 import CityCard from '../../components/organisms/city-card';
 import IconTextBtn from '../../components/molecules/icon-text-btn';
 import IconBtn from '../../components/molecules/icon-btn';
@@ -16,13 +16,7 @@ import Typography from '../../components/atoms/typography';
 import styles from './Home.styles';
 import {useDebounce} from 'use-debounce';
 
-const Home: React.FC<{
-  navigation: any;
-  favoriteCities: City[];
-  updateFavWeather: () => any;
-  setCurrentWeather: () => any;
-  removeFromFavs: () => any;
-}> = ({
+const Home: React.FC<HomePropTypes> = ({
   navigation,
   favoriteCities,
   updateFavWeather,
@@ -34,6 +28,8 @@ const Home: React.FC<{
   const [cityInput, setCityInput] = useState<string>('');
   const [citiesOptions, setCitiesOptions] = useState<[]>([]);
   const [debouncedInput] = useDebounce(cityInput, 500);
+
+  console.log(favoriteCities[0]);
 
   const openModal = () => {
     setIsModalVisible(true);
