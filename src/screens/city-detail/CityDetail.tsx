@@ -28,7 +28,9 @@ const CityDetail: React.FC<CityDetailPropTypes> = ({
   const navButtons = [
     {
       name: 'home',
-      onPress: () => {},
+      onPress: () => {
+        navigation.navigate('Home');
+      },
     },
     {
       name: 'search',
