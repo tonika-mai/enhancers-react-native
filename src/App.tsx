@@ -8,8 +8,8 @@ import {NavigationContainer} from '@react-navigation/native';
 import {Provider} from 'react-redux';
 import React from 'react';
 import {StatusBar} from 'react-native';
-import connectedCityDetail from './src/screens/city-detail';
-import connectedHome from './src/screens/home';
+import connectedCityDetail from './screens/city-detail';
+import connectedHome from './screens/home';
 import {createStackNavigator} from '@react-navigation/stack';
 import store from './redux';
 

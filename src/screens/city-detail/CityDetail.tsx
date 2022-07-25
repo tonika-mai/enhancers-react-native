@@ -1,5 +1,5 @@
 import {SafeAreaView, ScrollView, View} from 'react-native';
-import {formatLongDate, formatTemperature} from '../../../utils';
+import {formatLongDate, formatTemperature} from '../../utils';
 
 import {City} from '../home/Home.types';
 import Icon from '../../components/atoms/icon';

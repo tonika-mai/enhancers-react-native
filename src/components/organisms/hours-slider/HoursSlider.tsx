@@ -2,7 +2,7 @@ import React from 'react';
 import {View, ScrollView} from 'react-native';
 import Typography from '../../atoms/typography';
 import Dot from '../../atoms/dot';
-import {formatTemperature, formatTime} from '../../../../utils';
+import {formatTemperature, formatTime} from '../../../utils';
 import styles from './HoursSlider.styles';
 
 const HoursSlider: React.FC = ({hours, timezone}) => {

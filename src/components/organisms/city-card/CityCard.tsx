@@ -1,5 +1,5 @@
 import {TouchableOpacity, View} from 'react-native';
-import {formatLongDate, formatTemperature, formatTime} from '../../../../utils';
+import {formatLongDate, formatTemperature, formatTime} from '../../../utils';
 
 import Icon from '../../atoms/icon';
 import IconBtn from '../../molecules/icon-btn';

@@ -1,5 +1,5 @@
 import Home from './Home';
-import actions from '../../../redux/actions';
+import actions from '../../redux/actions';
 import {connect} from 'react-redux';
 
 const mapStateToProps = state => ({

@@ -3,7 +3,7 @@ import React, {useEffect, useState} from 'react';
 import {
   getCoordsListFromCityName,
   getWeatherFromCoords,
-} from '../../../networking';
+} from '../../networking';
 
 import AppModal from '../../components/organisms/modal';
 import {City} from './Home.types';

@@ -1,5 +1,5 @@
 import {View} from 'react-native';
-import {formatTemperature, formatDay} from '../../../../utils';
+import {formatTemperature, formatDay} from '../../../utils';
 
 import Icon from '../../atoms/icon';
 import React from 'react';
