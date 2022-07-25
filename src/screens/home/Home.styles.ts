@@ -3,11 +3,14 @@ import theme from '../../theme';
 
 const styles = StyleSheet.create({
   container: {
-    padding: theme.spacing,
+    paddingHorizontal: theme.spacing,
+    paddingVertical: 40,
     flex: 1,
   },
-  removeBtnContainer: {
-    alignSelf: 'flex-end',
+  editBtnContainer: {
+    position: 'absolute',
+    right: 20,
+    top: 20,
   },
   buttonSearchContainer: {
     marginTop: 15,

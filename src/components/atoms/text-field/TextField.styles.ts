@@ -10,6 +10,7 @@ const styles = StyleSheet.create({
     paddingRight: theme.spacing,
     color: theme.palette.common.black,
     fontSize: 18,
+    height: 50,
   },
 });
 

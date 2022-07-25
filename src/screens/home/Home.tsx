@@ -1,4 +1,4 @@
-import {FlatList, SafeAreaView, View, Alert} from 'react-native';
+import {FlatList, View, Alert} from 'react-native';
 import React, {useEffect, useState} from 'react';
 import {
   getCoordsListFromCityName,
@@ -129,9 +129,9 @@ const Home: React.FC<HomePropTypes> = ({
   }, [debouncedFilterInput, favoriteCities]);
 
   return (
-    <SafeAreaView style={styles.container}>
+    <View style={styles.container}>
       {citiesToRender.length > 0 && (
-        <View style={styles.removeBtnContainer}>
+        <View style={styles.editBtnContainer}>
           <IconBtn
             name={isEditMode ? 'save' : 'edit'}
             onPress={toggleEditMode}
@@ -174,7 +174,7 @@ const Home: React.FC<HomePropTypes> = ({
           </IconTextBtn>
         ))}
       </AppModal>
-    </SafeAreaView>
+    </View>
   );
 };
 

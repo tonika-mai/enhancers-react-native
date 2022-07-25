@@ -1,4 +1,4 @@
-import {SafeAreaView, ScrollView, View} from 'react-native';
+import {ScrollView, View} from 'react-native';
 import {formatLongDate, formatTemperature} from '../../utils';
 
 import {CityDetailPropTypes} from './CityDetail.types';
@@ -55,7 +55,7 @@ const CityDetail: React.FC<CityDetailPropTypes> = ({
   };
 
   return (
-    <SafeAreaView style={styles.container}>
+    <View style={styles.container}>
       <View style={[styles.header, styles.flexRow]}>
         <IconBtn name="arrowLeft" onPress={goBack} />
         <Typography align="center" weight="bold" size={32} color="textContrast">
@@ -108,7 +108,7 @@ const CityDetail: React.FC<CityDetailPropTypes> = ({
         </ScrollView>
       </ScrollView>
       <Nav buttons={navButtons} />
-    </SafeAreaView>
+    </View>
   );
 };
 
