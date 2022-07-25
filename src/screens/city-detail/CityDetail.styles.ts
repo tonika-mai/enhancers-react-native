@@ -15,11 +15,18 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   mainWeather: {
+    marginTop: 15,
     flexDirection: 'row',
     justifyContent: 'space-evenly',
     alignItems: 'center',
   },
+  sliderContainer: {
+    marginTop: 30,
+    marginBottom: 30,
+  },
   cityCardsContainer: {
+    paddingBottom: 20,
+    paddingTop: 20,
     margin: -10,
     flexDirection: 'row',
   },

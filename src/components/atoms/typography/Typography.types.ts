@@ -3,4 +3,5 @@ export interface TypographyProps {
   weight?: 'light' | 'medium' | 'semibold' | 'bold';
   color?: 'primary' | 'textContrast' | 'disabled';
   align?: 'left' | 'center' | 'right';
+  style?: any;
 }

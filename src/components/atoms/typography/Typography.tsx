@@ -10,7 +10,7 @@ const Typography: React.FC<PropsWithChildren<TypographyProps>> = ({
   weight = 'medium',
   color = 'primary',
   align = 'left',
-  ...props
+  style,
 }) => (
   <Text
     style={[
@@ -21,8 +21,8 @@ const Typography: React.FC<PropsWithChildren<TypographyProps>> = ({
         color: theme.palette[color],
         textAlign: align,
       },
-    ]}
-    {...props}>
+      style,
+    ]}>
     {children}
   </Text>
 );
