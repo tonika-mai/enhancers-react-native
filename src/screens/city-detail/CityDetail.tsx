@@ -31,17 +31,17 @@ const CityDetail: React.FC<{
   const hoursLeftToday = 24 - parseInt(currentHour);
   const hoursToRender = hourlyForecast?.slice(0, hoursLeftToday);
 
-  function goBack() {
+  const goBack = () => {
     navigation.goBack();
-  }
+  };
 
-  function removeCityFromFavs(cityName: string) {
+  const removeCityFromFavs = (cityName: string) => {
     removeFromFavs(cityName);
-  }
+  };
 
-  function addCityToFavorites(cityWeather) {
+  const addCityToFavorites = cityWeather => {
     addToFavs(cityWeather);
-  }
+  };
 
   return (
     <SafeAreaView style={styles.container}>

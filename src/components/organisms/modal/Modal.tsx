@@ -12,9 +12,9 @@ const AppModal: ReactFC<PropsWithChildren<ModalProps>> = ({
   isVisible,
   setIsVisible,
 }) => {
-  function closeModal() {
+  const closeModal = () => {
     setIsVisible(false);
-  }
+  };
 
   return (
     <Modal

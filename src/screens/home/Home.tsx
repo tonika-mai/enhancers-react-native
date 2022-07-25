@@ -35,24 +35,24 @@ const Home: React.FC<{
   const [citiesOptions, setCitiesOptions] = useState<[]>([]);
   const [debouncedInput] = useDebounce(cityInput, 500);
 
-  function openModal() {
+  const openModal = () => {
     setIsModalVisible(true);
-  }
+  };
 
-  async function selectCity(chosenCity) {
+  const selectCity = async chosenCity => {
     const weather = await getWeatherFromCoords(chosenCity.lat, chosenCity.lon);
     setCurrentWeather(weather, chosenCity.name);
     navigation.navigate('CityDetail');
-  }
+  };
 
-  function selectCityFromModal(chosenCity) {
+  const selectCityFromModal = chosenCity => {
     selectCity(chosenCity);
     setIsModalVisible(false);
     setCityInput('');
     setCitiesOptions([]);
-  }
+  };
 
-  function askDeleteConfirmation(cityName: string) {
+  const askDeleteConfirmation = (cityName: string) => {
     return Alert.alert('Remove from favorites?', null, [
       {
         text: 'Cancel',
@@ -60,17 +60,17 @@ const Home: React.FC<{
       },
       {text: 'Confirm', onPress: () => removeCityFromFavs(cityName)},
     ]);
-  }
+  };
 
-  function removeCityFromFavs(cityName: string) {
+  const removeCityFromFavs = (cityName: string) => {
     removeFromFavs(cityName);
-  }
+  };
 
-  function toggleEditMode() {
+  const toggleEditMode = () => {
     setIsEditMode(!isEditMode);
-  }
+  };
 
-  function renderCityCard({item}) {
+  const renderCityCard = ({item}) => {
     return (
       <CityCard
         data={item}
@@ -79,7 +79,7 @@ const Home: React.FC<{
         onRemovePress={() => askDeleteConfirmation(item.name)}
       />
     );
-  }
+  };
 
   useEffect(() => {
     if (favoriteCities.length > 0) {
@@ -92,10 +92,10 @@ const Home: React.FC<{
 
   useEffect(() => {
     if (debouncedInput) {
-      async function getCities(input) {
+      const getCities = async input => {
         const results = await getCoordsListFromCityName(input);
         setCitiesOptions(results.filter(city => city.country === 'IT'));
-      }
+      };
       getCities(debouncedInput);
     }
   }, [debouncedInput]);

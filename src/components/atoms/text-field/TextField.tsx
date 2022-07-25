@@ -5,9 +5,9 @@ import styles from './TextField.styles';
 const TextField: React.FC<{
   value: string;
 }> = ({value, onChange}) => {
-  function handleChange(input) {
+  const handleChange = input => {
     onChange(input);
-  }
+  };
 
   return (
     <TextInput value={value} onChangeText={handleChange} style={styles.input} />
