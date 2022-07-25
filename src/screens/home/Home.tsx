@@ -29,10 +29,10 @@ const Home: React.FC<{
   setCurrentWeather,
   removeFromFavs,
 }) => {
-  const [isEditMode, setIsEditMode] = useState(false);
-  const [isModalVisible, setIsModalVisible] = useState(false);
-  const [cityInput, setCityInput] = useState('');
-  const [citiesOptions, setCitiesOptions] = useState([]);
+  const [isEditMode, setIsEditMode] = useState<boolean>(false);
+  const [isModalVisible, setIsModalVisible] = useState<boolean>(false);
+  const [cityInput, setCityInput] = useState<string>('');
+  const [citiesOptions, setCitiesOptions] = useState<[]>([]);
   const [debouncedInput] = useDebounce(cityInput, 500);
 
   function openModal() {
